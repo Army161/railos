@@ -6,7 +6,7 @@
 
 **Architecture:** Use a pnpm/Turborepo TypeScript monorepo with isolated Next.js and Fastify application shells plus shared domain contracts. A small evidence-status module is the first tested behavior and is consumed by the API so integration claims are machine-readable and fail closed.
 
-**Tech Stack:** Node.js 24, pnpm 11, TypeScript 7, Turborepo 2, Next.js 16, React 19, Fastify 5, Zod 4, Vitest 4, ESLint 10, Prettier 3, PostgreSQL 17, Docker Compose, GitHub Actions.
+**Tech Stack:** Node.js 24, pnpm 11, TypeScript 6, Turborepo 2, Next.js 16, React 19, Fastify 5, Zod 4, Vitest 4, ESLint 10, Prettier 3, PostgreSQL 17, Docker Compose, GitHub Actions.
 
 ## Global Constraints
 
@@ -24,6 +24,7 @@
 ### Task 1: Seed the controlled repository
 
 **Files:**
+
 - Create: `README.md`
 - Create: `.gitignore`
 - Preserve: `docs/00_MASTER_BLUEPRINT.md`
@@ -33,6 +34,7 @@
 - Preserve: `docs/04_INVESTOR_PROTOTYPE.md`
 
 **Interfaces:**
+
 - Consumes: the five authoritative project documents.
 - Produces: the common baseline for `main`, `develop`, and `agent/codex-foundation`.
 
@@ -57,6 +59,7 @@ Expected: work continues only on `agent/codex-foundation`.
 ### Task 2: Establish monorepo tooling and failing evidence-contract test
 
 **Files:**
+
 - Create: `package.json`
 - Create: `pnpm-workspace.yaml`
 - Create: `turbo.json`
@@ -69,6 +72,7 @@ Expected: work continues only on `agent/codex-foundation`.
 - Create: `packages/contracts/src/integration-status.test.ts`
 
 **Interfaces:**
+
 - Consumes: evidence labels required by the master blueprint and security specification.
 - Produces: `getIntegrationStatuses(): IntegrationStatus[]` from `@railos/contracts`.
 
@@ -91,11 +95,13 @@ Expected: failure because `src/integration-status.ts` does not exist.
 ### Task 3: Implement shared integration and adapter contracts
 
 **Files:**
+
 - Create: `packages/contracts/src/integration-status.ts`
 - Create: `packages/contracts/src/adapters.ts`
 - Create: `packages/contracts/src/index.ts`
 
 **Interfaces:**
+
 - Produces: `IntegrationKind`, `EvidenceStatus`, `IntegrationStatus`, `HealthStatus`, `EnterpriseOrchestrationAdapter`, and `CustodyAdapter`.
 - Safety rule: no adapter implementation may default to a connected or production-enabled state.
 
@@ -116,6 +122,7 @@ Change one returned status locally, verify the test fails, restore it, and verif
 ### Task 4: Add Fastify and Next.js application shells
 
 **Files:**
+
 - Create: `apps/api/package.json`
 - Create: `apps/api/tsconfig.json`
 - Create: `apps/api/src/app.test.ts`
@@ -130,6 +137,7 @@ Change one returned status locally, verify the test fails, restore it, and verif
 - Create: `apps/web/app/globals.css`
 
 **Interfaces:**
+
 - Consumes: `getIntegrationStatuses()`.
 - Produces: `GET /health` and `GET /v1/integrations/status`; a buildable investor-facing status shell.
 
@@ -156,6 +164,7 @@ Expected: all API tests pass.
 ### Task 5: Add runtime, CI, governance, and project-control artifacts
 
 **Files:**
+
 - Create: `docker-compose.yml`
 - Create: `.env.example`
 - Create: `.github/workflows/ci.yml`
@@ -173,6 +182,7 @@ Expected: all API tests pass.
 - Create: `docs/review/CLAUDE_M0_HANDOFF.md`
 
 **Interfaces:**
+
 - Produces: reproducible local PostgreSQL configuration, required CI gates, and auditable product/research controls.
 
 - [ ] **Step 1: Add local runtime and CI**
@@ -190,10 +200,12 @@ Request P0/P1 review of architecture, secrets, trust boundaries, financial-state
 ### Task 6: Verify and commit Milestone 0
 
 **Files:**
+
 - Modify: `docs/coordination/MILESTONE_STATUS.md`
 - Modify: `docs/coordination/DECISION_LOG.md`
 
 **Interfaces:**
+
 - Produces: a reviewable `agent/codex-foundation` commit; no merge to `main`.
 
 - [ ] **Step 1: Run the complete gate**

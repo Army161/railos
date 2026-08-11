@@ -4,11 +4,11 @@ RailOS is an institutional control-plane prototype for policy-governed tokenized
 
 ## Evidence status
 
-| Capability | Status | Meaning |
-| --- | --- | --- |
-| XRPL | `TESTNET — UNCONFIGURED` | The adapter contract exists; live testnet status requires a verified connection and validated transaction. |
-| Kaleido | `CONNECTOR READY` | Contract/design only; no live tenant connectivity is claimed. |
-| BNY / custody | `PRODUCTION DISABLED` | Generic custody contract only; no BNY access or production integration is claimed. |
+| Capability    | Status                   | Meaning                                                                                                    |
+| ------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| XRPL          | `TESTNET — UNCONFIGURED` | The adapter contract exists; live testnet status requires a verified connection and validated transaction. |
+| Kaleido       | `CONNECTOR READY`        | Contract/design only; no live tenant connectivity is claimed.                                              |
+| BNY / custody | `PRODUCTION DISABLED`    | Generic custody contract only; no BNY access or production integration is claimed.                         |
 
 The authoritative product, build, workflow, security, and demo requirements are in [`docs/`](docs/).
 
