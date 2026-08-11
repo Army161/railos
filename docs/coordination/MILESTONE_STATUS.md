@@ -18,7 +18,7 @@ Last updated: 2026-08-11
 
 ## Current blockers to closing Milestone 0
 
-1. Remote GitHub Actions result.
+1. Remote GitHub Actions: run `31462313785` ended in `startup_failure` with zero jobs; retry was unavailable, so no CI command ran.
 2. Docker Compose runtime health check in a Docker-enabled environment; YAML structure is locally validated.
 3. Claude CHIEF_REVIEWER P0/P1 report.
 4. Founder approval before any merge to `main`.
